@@ -39,6 +39,19 @@ body {
     margin-top: 7px;
     font-weight: 300
 }
+.checkbox-wrap {
+    margin-bottom: 5px;
+}
+.length-wrap {
+    margin-bottom: 10px;
+}
+.checkbox-wrap label, .length-wrap label {
+    font-weight: 300;
+    font-size: 14px;
+}
+.length-wrap input {
+    width: 32px;
+}
 .btn-wrap {
     border-bottom: 1px solid #2F3E53;
 }
@@ -63,7 +76,6 @@ body {
     border-radius: 5px;
     background: #273549;
     color: #55F991;
-    /* cursor: pointer; */
     display: flex;
     align-items: center;
     justify-content: center;
