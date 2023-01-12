@@ -7,18 +7,10 @@ let secondPw = document.querySelector("#second-pw");
 let copyText = document.querySelector(".copy-text");
 
 function toggleCheck(condition, array, secondArray) {
-    if (condition) {
+    if (condition.checked) {
         array = array.concat(secondArray);
     }
     return array;
-}
-
-function checkedCheck(condition) {
-    if (condition.checked) {
-        return true;
-    } else {
-        return false;
-    }
 }
 
 function randomizer(element, array) {
@@ -32,15 +24,15 @@ function generatePw() {
 
     let characters = [];
     characters = characters.concat(letters);
-    characters = toggleCheck(checkedCheck(document.querySelector("#numbers")), characters, numbers);
-    characters = toggleCheck(checkedCheck(document.querySelector("#symbols")), characters, symbols);
+    characters = toggleCheck(document.querySelector("#numbers"), characters, numbers);
+    characters = toggleCheck(document.querySelector("#symbols"), characters, symbols);
 
     for (let i = 0; i <= document.querySelector("#length").value; i++) {
         randomizer(firstPw, characters);
         randomizer(secondPw, characters);
     }
 
-    copyText.textContent = "Click at the password to copy!";
+    copyText.textContent = "Click to copy!";
     firstPw.style = secondPw.style = "cursor: pointer";
 }
 
@@ -52,10 +44,6 @@ function copyOnClick(element) {
 }
 
 /*
-to do:
-checkbox and number style
-
---
 
 Old code to compare
 

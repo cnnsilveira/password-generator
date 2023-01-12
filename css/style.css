@@ -42,6 +42,9 @@ body {
 .checkbox-wrap {
     margin-bottom: 5px;
 }
+.checkbox-wrap input {
+    accent-color: #55F991;
+}
 .length-wrap {
     margin-bottom: 10px;
 }
