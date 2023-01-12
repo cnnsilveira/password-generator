@@ -5,3 +5,7 @@ A simple but useful Password Generator I've created a time ago as one of the pro
 ##
 
 Um gerador de senhas simples mas muito útil que criei um tempo atrás como um dos projetos do <a href="https://scrimba.com/learn/learnjavascript">Curso de Javacript</a> que eu estava fazendo. Recentemente decidi reescrever o código e adicionar algumas features.
+
+##
+
+### <a href="https://warm-bombolone-ac8f26.netlify.app/" target="_blank">Netlify Live Link</a>
