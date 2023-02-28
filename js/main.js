@@ -28,19 +28,18 @@ function generatePw() {
     domMessage.textContent = "";
     firstPw.textContent  = "";
     secondPw.textContent = "";
+    domMessage.classList.add('error');
+    domMessage.classList.remove('success');
     firstPw.style = secondPw.style = "cursor: initial";
 
     if (!domLetters.checked && !domNumbers.checked && !domSymbols.checked) {
         domMessage.textContent = "Your password must contain at least one type of character.";
-        domMessage.classList.add('error');
 
     } else if (pwLength.value < 1 || pwLength.value > 20) {
         domMessage.textContent = "Enter a valid number for the password length (8 - 20).";
-        domMessage.classList.add('error');
 
     } else {
-        domMessage.classList.remove('error');
-        domMessage.classList.remove('success');
+        domMessage.classList.remove(...domMessage.classList);
         domMessage.textContent = "Choose a password and click it to copy!";
         let characters = [];
         characters = toggleCheck(domLetters, characters, letters);
@@ -59,9 +58,10 @@ function generatePw() {
 function copyOnClick(element) {
     if (element.textContent.length != 0) {
         navigator.clipboard.writeText(element.textContent);
+        domMessage.textContent = "Password copied successfully!";
+        domMessage.classList.add('success');
+        domMessage.classList.remove('error');
     }
-    domMessage.textContent = "Password copied successfully!";
-    domMessage.classList.add('success');
 }
 
 /*
