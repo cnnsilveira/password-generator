@@ -60,7 +60,7 @@ function copyOnClick(element) {
     if (element.textContent.length != 0) {
         navigator.clipboard.writeText(element.textContent);
     }
-    domMessage.textContent = "Password copied succefully!";
+    domMessage.textContent = "Password copied successfully!";
     domMessage.classList.add('success');
 }
 
