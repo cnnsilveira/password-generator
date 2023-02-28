@@ -2,9 +2,15 @@ const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
 
-let firstPw  = document.querySelector("#first-pw");
-let secondPw = document.querySelector("#second-pw");
-let copyText = document.querySelector(".copy-text");
+const domLetters = document.querySelector("#letters");
+const domNumbers = document.querySelector("#numbers");
+const domSymbols = document.querySelector("#symbols");
+
+const firstPw  = document.querySelector("#first-pw");
+const secondPw = document.querySelector("#second-pw");
+const copyText = document.querySelector(".copy-text");
+const pwLength = document.querySelector("#length");
+const domError = document.querySelector("#error");
 
 function toggleCheck(condition, array, secondArray) {
     if (condition.checked) {
@@ -19,21 +25,36 @@ function randomizer(element, array) {
 }
 
 function generatePw() {
+    console.log(pwLength.value);
     firstPw.textContent  = "";
     secondPw.textContent = "";
+    copyText.textContent = "";
+    firstPw.style = secondPw.style = "cursor: initial";
 
-    let characters = [];
-    characters = characters.concat(letters);
-    characters = toggleCheck(document.querySelector("#numbers"), characters, numbers);
-    characters = toggleCheck(document.querySelector("#symbols"), characters, symbols);
+    if (!domLetters.checked && !domNumbers.checked && !domSymbols.checked) {
+        domError.textContent = "Your password must contain at least one type of character.";
 
-    for (let i = 0; i <= document.querySelector("#length").value; i++) {
-        randomizer(firstPw, characters);
-        randomizer(secondPw, characters);
+    } else if (pwLength.value < 8 || pwLength.value > 20) {
+        domError.textContent = "Enter a valid number for the password length (8 - 20).";
+
+    } else {
+        domError.textContent = "";
+        firstPw.textContent  = "";
+        secondPw.textContent = "";
+    
+        let characters = [];
+        characters = toggleCheck(domLetters, characters, letters);
+        characters = toggleCheck(domNumbers, characters, numbers);
+        characters = toggleCheck(domSymbols, characters, symbols);
+    
+        for (let i = 0; i < pwLength.value; i++) {
+            randomizer(firstPw, characters);
+            randomizer(secondPw, characters);
+        }
+    
+        copyText.textContent = "Click to copy!";
+        firstPw.style = secondPw.style = "cursor: pointer";
     }
-
-    copyText.textContent = "Click to copy!";
-    firstPw.style = secondPw.style = "cursor: pointer";
 }
 
 function copyOnClick(element) {

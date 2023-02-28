@@ -20,6 +20,7 @@ body {
     height: 500px;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .main-container {
     width: 90%;
@@ -30,6 +31,7 @@ body {
 }
 .title-wrap {
     height: 150px;
+    margin-bottom: 15px;
 }
 .title-wrap > h3 {
     font-size: 2rem;
@@ -48,15 +50,22 @@ body {
 .length-wrap {
     margin-bottom: 10px;
 }
-.checkbox-wrap label, .length-wrap label {
+.checkbox-wrap label,
+.length-wrap label,
+.error-wrap > span {
     font-weight: 300;
     font-size: 14px;
 }
 .length-wrap input {
     width: 32px;
 }
-.btn-wrap {
+.error-wrap {
+    margin-top: 10px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #2F3E53;
+}
+.error-wrap span {
+    color: rgb(202, 30, 30);
 }
 #pw-btn {
     padding: 10px;
@@ -65,7 +74,6 @@ body {
     background: #10B981;
     color: white;
     cursor: pointer;
-    margin-bottom: 30px;
 }
 .pw-wrap {
     display: flex;
