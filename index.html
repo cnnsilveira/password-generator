@@ -7,8 +7,8 @@
         <link href="css/style.css" rel="stylesheet">
     </head>
     <body>
-        <div class="content-box">
-            <div class="main-container">
+        <main>
+            <div class="content-box">
                 <div class="title-wrap">
                     <h3>Generate a <br><span style="color: #4ADF86;">random password</span></h3>
                     <p>Never use an insecure password again.</p>
@@ -30,24 +30,21 @@
                     </div>
                     <div class="length-wrap">
                         <input type="number" min="1" max="20" value="8" name="length" id="length">
-                        <label for="length">Password Length (8 - 20)</label>
+                        <label for="length">Password Length (1 - 20)</label>
                     </div>
                     <div class="btn-wrap">
                         <button id="pw-btn" onclick="generatePw()">Generate passwords</button>
                     </div>
-                    <div class="error-wrap">
-                        <span id="error"></span><br>
+                    <div class="msg-wrap">
+                        <span id="msg"></span><br>
                     </div>
                     <div class="pw-wrap">
                         <div id="first-pw" class="pw-div" onclick="copyOnClick(firstPw)"></div>
                         <div id="second-pw" class="pw-div" onclick="copyOnClick(secondPw)"></div>
                     </div>
-                    <div class="last-wrap">
-                        <p class="copy-text"></p>
-                    </div>
                 </div>
             </div>
-        </div>
+        </main>
         <script src="js/main.js"></script>
     </body>
 </html>

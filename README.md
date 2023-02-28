@@ -8,4 +8,4 @@ Um gerador de senhas simples mas muito útil que criei um tempo atrás como um d
 
 ##
 
-### <a href="https://warm-bombolone-ac8f26.netlify.app/" target="_blank">Netlify Live Link</a>
+### <a href="https://password.caionunes.dev" target="_blank">Live Link</a>

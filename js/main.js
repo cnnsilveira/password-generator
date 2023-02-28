@@ -2,15 +2,14 @@ const letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P"
 const numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 const symbols = ["~","`","!","@","#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?","/"];
 
-const domLetters = document.querySelector("#letters");
-const domNumbers = document.querySelector("#numbers");
-const domSymbols = document.querySelector("#symbols");
+const domLetters = document.getElementById("letters");
+const domNumbers = document.getElementById("numbers");
+const domSymbols = document.getElementById("symbols");
 
-const firstPw  = document.querySelector("#first-pw");
-const secondPw = document.querySelector("#second-pw");
-const copyText = document.querySelector(".copy-text");
-const pwLength = document.querySelector("#length");
-const domError = document.querySelector("#error");
+const firstPw  = document.getElementById("first-pw");
+const secondPw = document.getElementById("second-pw");
+const pwLength = document.getElementById("length");
+const domMessage = document.getElementById("msg");
 
 function toggleCheck(condition, array, secondArray) {
     if (condition.checked) {
@@ -26,33 +25,33 @@ function randomizer(element, array) {
 
 function generatePw() {
     console.log(pwLength.value);
+    domMessage.textContent = "";
     firstPw.textContent  = "";
     secondPw.textContent = "";
-    copyText.textContent = "";
     firstPw.style = secondPw.style = "cursor: initial";
 
     if (!domLetters.checked && !domNumbers.checked && !domSymbols.checked) {
-        domError.textContent = "Your password must contain at least one type of character.";
+        domMessage.textContent = "Your password must contain at least one type of character.";
+        domMessage.classList.add('error');
 
-    } else if (pwLength.value < 8 || pwLength.value > 20) {
-        domError.textContent = "Enter a valid number for the password length (8 - 20).";
+    } else if (pwLength.value < 1 || pwLength.value > 20) {
+        domMessage.textContent = "Enter a valid number for the password length (8 - 20).";
+        domMessage.classList.add('error');
 
     } else {
-        domError.textContent = "";
-        firstPw.textContent  = "";
-        secondPw.textContent = "";
-    
+        domMessage.classList.remove('error');
+        domMessage.classList.remove('success');
+        domMessage.textContent = "Choose a password and click it to copy!";
         let characters = [];
         characters = toggleCheck(domLetters, characters, letters);
         characters = toggleCheck(domNumbers, characters, numbers);
         characters = toggleCheck(domSymbols, characters, symbols);
-    
+
         for (let i = 0; i < pwLength.value; i++) {
             randomizer(firstPw, characters);
             randomizer(secondPw, characters);
         }
-    
-        copyText.textContent = "Click to copy!";
+
         firstPw.style = secondPw.style = "cursor: pointer";
     }
 }
@@ -60,8 +59,9 @@ function generatePw() {
 function copyOnClick(element) {
     if (element.textContent.length != 0) {
         navigator.clipboard.writeText(element.textContent);
-        copyText.textContent = "Password copied successfully!";
     }
+    domMessage.textContent = "Password copied succefully!";
+    domMessage.classList.add('success');
 }
 
 /*
