@@ -11,7 +11,7 @@
             <div class="main-container">
                 <div></div>
                 <div class="title-wrap">
-                    <h3>Generate a <br><span style="color: #4ADF86;">random passworda</span></h3>
+                    <h3>Generate a <br><span style="color: #4ADF86;">random password</span></h3>
                     <p>Never use an insecure password again.</p>
                 </div>
                 <div class="content-wrap">
@@ -27,6 +27,15 @@
                     </div>
                     <div class="length-wrap">
                         <input type="number" min="1" max="20" value="8" name="length" id="length">
+                        <select name="length" id="length">
+                            <?php
+                            
+                            for ($i = 8; $i >= 20; $i++) {
+                                echo '<option value="'.$i.'">'.$i.'</option>';
+                            }
+
+                            ?>
+                        </select>
                         <label for="length">Password Length</label>
                     </div>
                     <div class="btn-wrap">
