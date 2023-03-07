@@ -50,11 +50,11 @@ main {
     font-size: 14px;
 }
 .length-wrap input {
-    width: 32px;
+    width: 35px;
     border-radius: 2px;
     background: #fff;
     border: none;
-    padding: 5px 0 5px 10px;
+    padding: 5px 0 5px 5px;
 }
 .msg-wrap {
     margin-top: 10px;
